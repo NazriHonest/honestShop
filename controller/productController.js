@@ -34,7 +34,7 @@ export const createProduct = async (req, res) => {
       description,
       price,
       oldPrice,
-      numberInStock,
+      countInStock,
     } = req.body;
     const product = await Product.create({
       name,
@@ -43,7 +43,7 @@ export const createProduct = async (req, res) => {
       description,
       price,
       oldPrice,
-      numberInStock,
+      countInStock,
     });
     if (product) {
       res.status(201).json(product);
@@ -63,7 +63,7 @@ export const updateProduct = async (req, res) => {
       description,
       price,
       oldPrice,
-      numberInStock,
+      countInStock,
     } = req.body;
 
     const product = await Product.findById(req.params.id);
@@ -75,7 +75,7 @@ export const updateProduct = async (req, res) => {
       product.description = description
       product.price = price
       product.oldPrice = oldPrice
-      product.numberInStock = numberInStock
+      product.countInStock = countInStock
 
       const updatedProduct = await product.save()
       if (updatedProduct) {
