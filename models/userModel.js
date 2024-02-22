@@ -26,8 +26,26 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    cart: [],
-    wishlist: []
+    cart: [
+        {
+            product: {
+                type: mongoose.Schema.Types.ObjectId,
+                required: true,
+            },
+            quantity: {
+                type: Number,
+                required: true,
+            }
+        }
+    ],
+    wishlist: [
+        {
+            product: {
+                type: mongoose.Schema.Types.ObjectId,
+                required: true,
+            },
+        }
+    ]
     
 })
 
